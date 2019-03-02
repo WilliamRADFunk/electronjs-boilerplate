@@ -1,0 +1,38 @@
+{
+  "name": "electronjs-boilerplate",
+  "productName": "ElectronBoilerplate",
+  "version": "0.1.0",
+  "description": "Simple \"hello world\" boilerplate application using ElectronJs.",
+  "main": "app.js",
+  "scripts": {
+    "build": "npm-run-all clean package",
+    "build:all": "npm-run-all clean package:all",
+    "clean": "rimraf dist/",
+    "package": "electron-packager . --asar --out=dist",
+    "package:all": "electron-packager . --asar --out=dist --all",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamRADFunk/electronjs-boilerplate.git"
+  },
+  "keywords": [
+    "electron",
+    "electronjs",
+    "electron-js",
+    "boilerplate"
+  ],
+  "author": "WilliamRADFunk",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/WilliamRADFunk/electronjs-boilerplate/issues"
+  },
+  "homepage": "https://github.com/WilliamRADFunk/electronjs-boilerplate#readme",
+  "devDependencies": {
+    "electron": "^4.0.6",
+    "electron-packager": "^13.1.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3"
+  }
+}
