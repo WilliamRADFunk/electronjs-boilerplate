@@ -73,6 +73,12 @@ gulp.task('sasslint', () => {
             'style': 'long'
           }
         ],
+        'indentation': [
+          1,
+          {
+            'size': 'tab'
+          }
+        ],
         'no-color-literals': 0,
         'no-ids': 0,
         'no-mergeable-selectors': 0,
@@ -104,7 +110,7 @@ gulp.task('assets', () => {
     .pipe(gulp.dest('dist/assets'))
     .pipe(connect.reload())
 });
- 
+
 gulp.task('typescript', () => {
   gutil.log('== Transmogrifying ts to js ==');
   return gulp.src('src/**/*.ts')
@@ -116,7 +122,7 @@ gulp.task('typescript', () => {
       .on('error', gutil.log)
     .pipe(gulp.dest('dist/js-pure'));
 });
- 
+
 gulp.task('bundle', () => {
   gutil.log('== Bundling the js ==');
   return browserify('./dist/js-pure/main.js')
@@ -128,7 +134,7 @@ gulp.task('bundle', () => {
     .pipe(buffer())
     .pipe(gulp.dest('./dist/js-pure/'))
 });
- 
+
 gulp.task('fuglify', () => {
   gutil.log('== Fuglifying the js ==');
   return gulp.src('dist/js-pure/bundle.js')

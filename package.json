@@ -21,7 +21,9 @@
     "start:gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "directories": { "output": "dist/js-pure/" },
+  "directories": {
+    "output": "dist/js-pure/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WilliamRADFunk/electronjs-boilerplate.git"
@@ -57,15 +59,14 @@
   },
   "homepage": "https://github.com/WilliamRADFunk/electronjs-boilerplate#readme",
   "devDependencies": {
-    "electron": "^4.0.6",
-    "electron-packager": "^13.1.0",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^2.6.3",
+    "@types/node": "^10.3.6",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
     "browserify": "^16.2.2",
     "del": "^3.0.0",
+    "electron": "^4.0.6",
+    "electron-packager": "^13.1.0",
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.6.1",
@@ -77,6 +78,8 @@
     "gulp-typedoc": "^2.2.0",
     "gulp-typescript": "^5.0.0-alpha.3",
     "gulp-uglify": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3",
     "ts-node": "^4.1.0",
     "tslint": "^5.11.0",
     "typedoc": "0.11.0",

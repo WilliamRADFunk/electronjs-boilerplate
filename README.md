@@ -1,5 +1,5 @@
 # electronjs-boilerplate
-(In Progress) - Simple "hello world" boilerplate application using ElectronJs.
+(Complete) - Simple boilerplate application using ElectronJs with Typescript, Gulp, and SCSS.
 
 ***
 
@@ -23,9 +23,11 @@ Detailed [documentation](docs/README.md)
 
 ## Available Command Line Options
 
-`npm run build` will build your project, depositing all finished files in the created `dist/` folder.</br></br>
+`npm run build` will build your project (for your platform), depositing all finished files in the created `build/` folder.</br></br>
 
-`npm run start` will build the application, and launch it in the browser. Simply navigate to `http://localhost:8080`.</br></br>
+`npm run build:all` will build your project (for all platforms), depositing all finished files in the created `build/` folder.</br></br>
+
+`npm run start` will build your project, depositing all finished files in the created `dist/` folder, and launch it.</br></br>
 
 `npm run lint` will search the scss and typescript files for common style issues and alert you of any it finds.</br></br>
 
