@@ -35,8 +35,7 @@ export default class Main {
 			width: 1200,
 			height: 800,
 			webPreferences: {
-				nodeIntegration: false,
-				webSecurity: false
+				nodeIntegration: true
 			}
 		});
 
