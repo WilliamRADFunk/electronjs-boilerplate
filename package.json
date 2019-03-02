@@ -4,15 +4,24 @@
   "version": "0.1.0",
   "description": "Simple \"hello world\" boilerplate application using ElectronJs.",
   "main": "app.js",
+  "private": true,
   "scripts": {
     "build": "npm-run-all clean package",
+    "build:gulp": "gulp build",
     "build:all": "npm-run-all clean package:all",
-    "clean": "rimraf dist/",
-    "package": "electron-packager . --asar --out=dist",
-    "package:all": "electron-packager . --asar --out=dist --all",
-    "start": "electron .",
+    "postbuild": "gulp clean:temp",
+    "readme": "gulp typedoc",
+    "clean:docs": "npm run rimraf docs/",
+    "lint": "gulp lint",
+    "clean": "rimraf build/",
+    "package": "electron-packager ./build --asar --out=build",
+    "package:all": "electron-packager ./build --asar --out=build --all",
+    "start": "npm-run-all --serial start:gulp start:electron",
+    "start:electron": "electron dist/js-pure/ts/app.js",
+    "start:gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "directories": { "output": "dist/js-pure/" },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WilliamRADFunk/electronjs-boilerplate.git"
@@ -21,18 +30,59 @@
     "electron",
     "electronjs",
     "electron-js",
-    "boilerplate"
+    "boilerplate",
+    "gulp",
+    "sass",
+    "scss",
+    "typescript",
+    "javascript",
+    "ts",
+    "js",
+    "typedoc",
+    "boilerplate",
+    "lint",
+    "linter",
+    "tslint",
+    "sassLint"
   ],
-  "author": "WilliamRADFunk",
+  "author": "William Robert Funk",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/WilliamRADFunk/electronjs-boilerplate/issues"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   },
   "homepage": "https://github.com/WilliamRADFunk/electronjs-boilerplate#readme",
   "devDependencies": {
     "electron": "^4.0.6",
     "electron-packager": "^13.1.0",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "browserify": "^16.2.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.6.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-tslint": "^8.1.3",
+    "gulp-typedoc": "^2.2.0",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "gulp-uglify": "^3.0.1",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.11.0",
+    "typedoc": "0.11.0",
+    "typedoc-plugin-markdown": "1.1.15",
+    "typescript": "2.9.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   }
 }
