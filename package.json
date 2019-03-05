@@ -6,7 +6,7 @@
   "main": "app.js",
   "private": true,
   "scripts": {
-    "build": "npm-run-all clean package",
+    "build": "npm-run-all clean build:gulp package",
     "build:gulp": "gulp build",
     "build:all": "npm-run-all clean package:all",
     "postbuild": "gulp clean:temp",
@@ -14,10 +14,10 @@
     "clean:docs": "npm run rimraf docs/",
     "lint": "gulp lint",
     "clean": "rimraf build/",
-    "package": "electron-packager ./build --asar --out=build",
-    "package:all": "electron-packager ./build --asar --out=build --all",
+    "package": "electron-packager dist --asar --out=build",
+    "package:all": "electron-packager dist --asar --out=build --all",
     "start": "npm-run-all --serial start:gulp start:electron",
-    "start:electron": "electron dist/js-pure/ts/app.js",
+    "start:electron": "electron dist/app.js",
     "start:gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

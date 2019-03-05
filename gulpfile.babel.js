@@ -104,10 +104,24 @@ gulp.task('html', () => {
     .pipe(connect.reload())
 });
 
+gulp.task('templates', () => {
+  gutil.log('== Copying templates/*.html to dist ==');
+  gulp.src('src/templates/*.html')
+    .pipe(gulp.dest('dist/templates'))
+    .pipe(connect.reload())
+});
+
 gulp.task('assets', () => {
   gutil.log('== Copying index.html to dist ==');
   gulp.src('src/assets/**/*')
     .pipe(gulp.dest('dist/assets'))
+    .pipe(connect.reload())
+});
+
+gulp.task('pkg', () => {
+  gutil.log('== Copying index.html to dist ==');
+  gulp.src('package.json')
+    .pipe(gulp.dest('dist/'))
     .pipe(connect.reload())
 });
 
@@ -120,7 +134,7 @@ gulp.task('typescript', () => {
       module: "commonjs",
     }))
       .on('error', gutil.log)
-    .pipe(gulp.dest('dist/js-pure'));
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('bundle', () => {
@@ -158,7 +172,7 @@ gulp.task('sass', () => {
 });
 
 gulp.task('scripts:reload', (callback) => {
-  gulpSequence('clean:temp', 'typescript', /*'bundle', 'fuglify',*/ 'reload')(callback);
+  gulpSequence('clean:temp', 'typescript', 'reload')(callback);
 });
 
 gulp.task('connect', () => {
@@ -185,9 +199,8 @@ gulp.task('watch', () => {
 gulp.task('build', gulpSequence(
   'clean:dist',
   ['tslint', 'sasslint'],
-  ['assets', 'html', 'sass', 'typescript'],
-  // 'bundle',
-  // 'fuglify'
+  ['assets', 'html', 'templates', 'sass', 'typescript'],
+  'pkg'
 ));
 
 gulp.task('typedoc', gulpSequence(
@@ -201,9 +214,5 @@ gulp.task('lint', gulpSequence(
 
 gulp.task('default', gulpSequence(
   'clean:dist',
-  ['assets', 'html', 'sass', 'typescript'],
-  // 'bundle',
-  // 'fuglify',
-  // 'connect',
-  // 'watch'
+  ['assets', 'html', 'templates', 'sass', 'typescript'],
 ));

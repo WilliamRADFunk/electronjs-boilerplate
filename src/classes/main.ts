@@ -39,7 +39,7 @@ export default class Main {
 			}
 		});
 
-		Main.mainWindow.loadURL('file://' + __dirname + '/../../index.html');
+		Main.mainWindow.loadURL('file://' + __dirname + '/../index.html');
 
 		// Open the DevTools.
 		Main.mainWindow.webContents.openDevTools()
@@ -68,7 +68,7 @@ export default class Main {
 
     private static onReady() {
 		// Create a new tray
-		Main.tray = new Tray(path.join(__dirname, '../../assets', 'images', 'electron-icon.png'));
+		Main.tray = new Tray(path.join(__dirname, '..', 'assets', 'images', 'electron-icon.png'));
 		Main.tray.on('right-click', Main.toggleWindow);
 		Main.tray.on('double-click', Main.toggleWindow);
 		Main.tray.on('click', function (event) {
