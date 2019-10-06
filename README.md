@@ -1,5 +1,5 @@
 # electronjs-boilerplate
-(Complete) - Simple boilerplate application using ElectronJs with Typescript, Gulp, and SCSS.
+Simple boilerplate application using ElectronJs with Typescript, Gulp, and SCSS.
 
 ***
 
